@@ -4,7 +4,7 @@ const toNumber = (val: any) =>
     typeof val === "number" ? val : Number(val);
 const schema = z.object({
     data: z
-        .coerce.number()
+        .coerce.number() // I believe using .coerce() is the key here
         .transform((val) => toNumber(val))
 });
 type input = z.input<typeof schema>; // { data: number}
