@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "removeComments": false,
+      "sourceMap": true,
+      "outDir": "./lib",
+      "strict": true,
+    },
+    "include": ["./**/*.ts"],
+    "exclude": ["node_modules"]
+}
