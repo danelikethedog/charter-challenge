@@ -9,6 +9,11 @@
 * Pull in Zod as a submodule for reference.
     * Removed since causes build issues.
 * Create a `package.json` and `tsconfig.json` file for respective purposes.
+* Read through zod documentation to understand it's breadth and came on "JSON type" section which allows you to "validate any JSON value, you can use the snippet below". Trying that snippet.
+    * Looks like its overkill for these purposes.
+* Reading "preprocess" section...looks interesting.
+    > "apply some transform to the input before parsing happens. A common use case: type coercion."
+* Looks like new way of doing that is via "coercion". Trying that.
 
 ## Notes
 
