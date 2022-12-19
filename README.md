@@ -14,7 +14,7 @@
 * Reading "preprocess" section...looks interesting.
     > "apply some transform to the input before parsing happens. A common use case: type coercion."
 * Looks like new way of doing that is via "coercion". Trying that.
-    * It looks to me like it works?
+    * It looks to me like it works? [LINK TO WHAT I BELIEVE IS THE ANSWER](https://github.com/danelikethedog/charter-challenge/blob/b90f2481fd1bf1ed97413cf7c496267ce5025839/challenge.ts#L7)
 
 ## Notes
 
