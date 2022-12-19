@@ -7,7 +7,7 @@ const schema = z.object({
         .coerce.number()
         .transform((val) => toNumber(val))
 });
-type input = z.input<typeof schema>; // { data: string | number}
+type input = z.input<typeof schema>; // { data: number}
 type output = z.output<typeof schema>; // { data: number }
 type inferred = z.infer<typeof schema>; // same as output
 const value = schema.parse({ data: "123456" }); // value == { data : 123456}
