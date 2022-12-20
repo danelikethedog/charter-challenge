@@ -2,6 +2,8 @@
 
 ## Steps Taken
 
+[Link to File for Answer](./challenge.ts)
+
 * Set up repo in which to work.
 * Dump basic knowledge into README to understand problem.
 * Create a `challenge.ts` file to write answer.
@@ -17,6 +19,8 @@
     * It looks to me like it works? [LINK TO WHAT I BELIEVE IS THE ANSWER](https://github.com/danelikethedog/charter-challenge/blob/b90f2481fd1bf1ed97413cf7c496267ce5025839/challenge.ts#L7)
 
 ## Bonus - Steps Taken
+
+[Link to File for Answer](./bonus.ts)
 
 metadata schema that stores MongoDB's ObjectId
 
