@@ -11,7 +11,9 @@ type input = z.input<typeof schema>; // { data: number}
 type output = z.output<typeof schema>; // { data: number }
 type inferred = z.infer<typeof schema>; // same as output
 const value = schema.parse({ data: "123456" }); // value == { data : 123456}
-console.log(value)
+const boolVal = schema.parse({ data: true });
+console.log(value);
+console.log(boolVal);
 
 interface genericThirdPartyType<T> {
     genericData: T;
