@@ -18,7 +18,7 @@
 * Looks like new way of doing that is via "coercion". Trying that.
     * It looks to me like it works? [LINK TO WHAT I BELIEVE IS THE ANSWER](https://github.com/danelikethedog/charter-challenge/blob/b90f2481fd1bf1ed97413cf7c496267ce5025839/challenge.ts#L7)
 
-## Steps Taken
+## Steps Taken Without Coerce
 
 **Do without using coerce**
 
