@@ -18,6 +18,29 @@
 * Looks like new way of doing that is via "coercion". Trying that.
     * It looks to me like it works? [LINK TO WHAT I BELIEVE IS THE ANSWER](https://github.com/danelikethedog/charter-challenge/blob/b90f2481fd1bf1ed97413cf7c496267ce5025839/challenge.ts#L7)
 
+## Steps Taken
+
+**Do without using coerce**
+
+* Acknowledging that the easiest way to find out how to do it without using coerce is to just look into the source code and see how coerce was implemented, but I won't do that, obviously cheating.
+* It needs some kind of preprocessing before sending to parse to make it a number.
+* Going through the documentation again to find something like gives that flexibilty.
+    * Docs show that while you may now use "coercion", you can use preprocess to do something similar.
+        > But sometimes you want to apply some transform to the input before parsing happens. A common use case: type coercion. Zod enables this with the z.preprocess().
+* Preprocess seems to return a `ZodEffect` instead of a `ZodObject`.
+    * Quick search on DDG for `ZodEffect` to see what it means.
+    * [Found this GH issue which suggests using `.innerType()`](https://stackoverflow.com/questions/74672399/how-to-merge-a-zodeffect-with-a-zodobject)
+* Compiles using `.innerType()` just fine, but runtime isn't quite right. Now only expects a number.
+* Don't actually need that. Tried a direct call to `Number()` instead of helper function and works straight up.
+    * The last bit fails since input field is now unknown. Looking to fix.
+* Seems like a whack a mole. Using `innerType()` fixes the compilation but not having it makes the run time fine.
+* Looking into `.custom()` to see if that helps.
+    * Using `z.custom<{data:number}>()` seems to give me the input I want. How to manipulate the output? Can't directly use a `z.object()`.
+* Okay trying to transform the actual value and then morph into an intermediary object.
+* Looks like using a "private" intermediary z object works.
+* Used two versions (one with an internal and one with an external schema as intermediary).
+
+
 ## Bonus - Steps Taken
 
 [Link to File for Answer](./bonus.ts)
