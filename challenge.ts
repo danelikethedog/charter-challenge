@@ -24,7 +24,7 @@ interface genericThirdPartyType<T> {
     genericData: T;
 }
 
-const matchingSchemaContained: z.ZodType<genericThirdPartyType<inferFinalSchema>> = z.object({
+const matchingSchemaContained: z.ZodType<genericThirdPartyType<inferContainedType>> = z.object({
     genericData: containedSchema
 });
 
@@ -36,9 +36,9 @@ const privateSchema = z.object({
 const finalSchema = z.custom<{ data: number }>()
     .transform((arg) => Number(arg.data))
     .transform((arg, ctx) => privateSchema.parse({ data: arg }))
-type inputFinalSchema = z.input<typeof finalSchema>; // { data: number}
-type outputFinalSchema = z.output<typeof finalSchema>; // { data: number}
-type inferFinalSchema = z.infer<typeof finalSchema>;
+type inputFinalType = z.input<typeof finalSchema>; // { data: number}
+type outputFinalType = z.output<typeof finalSchema>; // { data: number}
+type inferFinalType = z.infer<typeof finalSchema>;
 const tester = finalSchema.parse({ data: "100" }); // pass
 const tester2 = finalSchema.parse({ data: 200 }); // pass
 const tester3 = finalSchema.parse({ data: true }); //pass
@@ -50,6 +50,6 @@ interface genericThirdPartyType<T> {
     genericData: T;
 }
 
-const matchingSchemaFinal: z.ZodType<genericThirdPartyType<inferFinalSchema>> = z.object({
+const matchingSchemaFinal: z.ZodType<genericThirdPartyType<inferFinalType>> = z.object({
     genericData: finalSchema
 });
